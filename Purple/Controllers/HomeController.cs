@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Purple.DAL;
 using Purple.Models;
 using Purple.ViewModels.Home;
 
@@ -7,16 +10,18 @@ namespace Purple.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            var projectComponents = new List<ProjectComponent>
-            {
-                new ProjectComponent { Id=1, Title="UI/UX Design",Description="Our works", ImagePath="/assets/img/services-01.jpg" },
-                new ProjectComponent { Id = 2, Title = "Web Design", Description = "Our works", ImagePath= "/assets/img/services-01.jpg" },
-                new ProjectComponent { Id = 3, Title = "Mobil Development", Description = "Our works", ImagePath= "/assets/img/services-01.jpg" },
-              new ProjectComponent { Id = 2, Title = "Marketing", Description = "Our works", ImagePath= "/assets/img/services-01.jpg" }
+            private readonly AppDbContext _appDbContext;
 
-                };
+            public HomeController(AppDbContext appDbContext)
+            {
+            _appDbContext = appDbContext;
+            }
+     
+        public async Task<IActionResult> Index()
+            { 
+
+            var projectComponents = await _appDbContext.ProjectComponets.ToListAsync();
+
 
             var model = new HomeIndexViewModel
             {
