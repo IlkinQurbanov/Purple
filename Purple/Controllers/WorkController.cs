@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Purple.DAL;
+using Purple.ViewModels;
+using Purple.ViewModels.Work;
 
 namespace Purple.Controllers
 {
@@ -16,12 +18,19 @@ namespace Purple.Controllers
 
 
 
-        public  async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
+            var components = await _appDbContext.Components.ToListAsync();
+            var categories = await _appDbContext.Categories.Include(x => x.Components).ToListAsync();
 
-            var model = await _appDbContext.Categories.Include(x => x.Components).ToListAsync();
+            var vm = new WorkIndexViewModels
+            {
+                categories = categories,
+                components = components
+            };
 
-            return View(model);
+            return View(vm);
         }
+
     }
 }
