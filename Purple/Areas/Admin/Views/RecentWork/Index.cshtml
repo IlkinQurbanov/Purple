@@ -1,5 +1,65 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Purple.Models;
+@model List<RecentWork>
+
+
+
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    Recnt works
+                </h2>
+                <a asp-action="create" asp-controller="recentwork" asp-area="admin" class="btn btn-primary">Create recent work</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br />
+<br />
+
+<div class="container-xl" style="margin-left: 50px;">
+
+
+<div class="col-12">
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-vcenter card-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Desc</th>
+                        <th>ImagePath</th>
+                        <th class="w-1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id </td>
+                            <td >
+                              @item.Title
+                            </td>
+                            <td >@item.Desc</td>
+                            <td >
+                                @item.ImagePath
+                            </td>
+                            <td>
+                                <a href="#">Edit</a>
+                            </td>
+                        </tr>
+                    }
+             
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
