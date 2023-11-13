@@ -1,0 +1,31 @@
+﻿<div class="card">
+    <div class="card-body">
+        <div class="row g-2 align-items-center">
+            <div class="col-auto">
+                <span class="avatar avatar-lg" style="background-image: url(@Model.ImagePath)"></span>
+            </div>
+            <div class="col">
+                <h4 class="card-title m-0">
+                    <a href="#">@Model.Title</a>
+                </h4>
+                <div class="text-secondary">
+                   @Model.Desc
+                </div>
+           
+            </div>
+            <div class="col-auto">
+                <form  method="post" asp-action="deletecomponent" asp-controller="recentwork" asp-area="admin" asp-route-id="@Model.Id" class="form-sample">
+
+                    <a href="#" class="btn btn-danger">
+                        Delete
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        Cancel
+                    </a>
+                </form>
+              
+            </div>
+        
+        </div>
+    </div>
+</div>

@@ -33,8 +33,9 @@
                         <th>ID</th>
                         <th>Title</th>
                         <th>Desc</th>
-                        <th>ImagePath</th>
-                        <th class="w-1"></th>
+                            <th>ImagePath</th>
+                        <th>Action</th>
+                            <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,8 +52,15 @@
                                 @item.ImagePath
                             </td>
                             <td>
-                                <a href="#">Edit</a>
+                               <a class="btn btn-primary" asp-action="update" asp-controller="recentwork" asp-area="admin" asp-route-id="@item.Id">Update</a>
                             </td>
+                                <td>
+                                    <a class="btn btn-danger" asp-action="delete" asp-controller="recentwork" asp-area="admin" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                           <td>
+
+
+                           </td>
                         </tr>
                     }
              

@@ -2,17 +2,17 @@
 @model RecentWork
 
 <div class="col-md-12">
-    <form class="card" method="post" asp-action="create" asp-controller="recentwork" asp-area="admin">
+    <form class="card" method="post" asp-action="update" asp-controller="recentwork" asp-area="admin">
         <div class="card-header">
-            <h3 class="card-title">Create Recenr Work</h3>
+            <h3 class="card-title">Update   Recent Work</h3>
         </div>
         <div class="card-body">
             <div class="mb-3 row">
                 <label class="col-3 col-form-label " asp-for="Title">Title</label>
                 <div class="col">
-                    <input asp-for="Title" class="form-control"  placeholder="Enter Title">
+                    <input asp-for="Title" class="form-control" placeholder="Enter Title">
                     <span class="text-danger" asp-validation-for="Title"></span>
-      
+
                 </div>
             </div>
 
@@ -21,7 +21,7 @@
                     <label class="col-3 col-form-label " asp-for="Desc">Description</label>
                     <div class="col">
                         <input asp-for="Desc" class="form-control" placeholder="Enter Description">
-                        <span  class="text-danger" asp-validation-for="Desc"></span>
+                        <span class="text-danger" asp-validation-for="Desc"></span>
                     </div>
                 </div>
                 <div class="card-body">
@@ -32,9 +32,9 @@
                             <span class="text-danger" asp-validation-for="ImagePath"></span>
                         </div>
                     </div>
-        </div>
-        <div class="card-footer text-end">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
     </form>
 </div>
