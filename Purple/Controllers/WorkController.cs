@@ -20,13 +20,15 @@ namespace Purple.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var components = await _appDbContext.Components.ToListAsync();
-            var categories = await _appDbContext.Categories.Include(x => x.Components).ToListAsync();
+          //  var components = await _appDbContext.Components.ToListAsync();
+             var categories = await _appDbContext.Categories.Include(x => x.CategoryComponents)
+                .ThenInclude(cc=>cc.Component).ToListAsync();
+
 
             var vm = new WorkIndexViewModels
             {
                 categories = categories,
-                components = components
+                //components = components
             };
 
             return View(vm);

@@ -107,11 +107,14 @@ namespace Purple.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var dbRcomp = await _appDbContext.RecentWorks.FindAsync();
-            if (dbRcomp == null) return NotFound();
+            var dbRcomp = await _appDbContext.RecentWorks.FindAsync(id);
+            if (dbRcomp == null)
+            {
+                return NotFound();
+            }
             return View(dbRcomp);
-
         }
+
 
         [HttpPost]
         public async Task<IActionResult> DeleteComponent(int id)
