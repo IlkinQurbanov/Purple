@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+v86sID3kB1mGXdp4lu5kCSyOQI2kJVq7Gn6CdJagZ8=",
+  "Hash": "sfu59k7WSQeUwF+pWo7sG1K2rxduD/rL9QaFC3WcdT4=",
   "Source": "Purple",
   "BasePath": "_content/Purple",
   "Mode": "Default",
@@ -23186,6 +23186,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner-img-02.svg"
+    },
+    {
+      "Identity": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\c32d9070-5ab2-477c-b3e8-020e6c029bb1_Green White Minimal Elegant Simple Name Logo.png",
+      "SourceId": "Purple",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\",
+      "BasePath": "_content/Purple",
+      "RelativePath": "assets/img/c32d9070-5ab2-477c-b3e8-020e6c029bb1_Green White Minimal Elegant Simple Name Logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\c32d9070-5ab2-477c-b3e8-020e6c029bb1_Green White Minimal Elegant Simple Name Logo.png"
     },
     {
       "Identity": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\favicon.ico",
