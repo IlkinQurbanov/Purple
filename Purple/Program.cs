@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Purple.DAL;
+using Purple.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IFileService, FileService>();
 
 var connectionString = builder.Configuration.GetConnectionString("ConString");
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(connectionString));

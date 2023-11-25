@@ -9,7 +9,7 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 <h2 class="page-title">
-                    Recnt works
+                    Team Members
                 </h2>
                 <a asp-action="create" asp-controller="teammember" asp-area="admin" class="btn btn-primary">Create  Team Member</a>
             </div>
@@ -45,7 +45,7 @@
                                 <tr>
                                     <td>@item.Id </td>
                                     <td>
-                                    <span class="avatar me-2" style="background-image: url(~/assets/img/@item.PhotoName)"></span>
+                                    <span class="avatar me-2" style="background-image: url('@Url.Content($"~/assets/img/{item.PhotoName}")')"></span>
                                     </td>
                                     <td>
                                         @item.Name

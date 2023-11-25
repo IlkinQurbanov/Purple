@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Purple.DAL;
+using Purple.Helpers;
 using Purple.Models;
 using System.Net.Mime;
 
@@ -12,11 +13,13 @@ namespace Purple.Areas.Admin.Controllers
 
         public readonly AppDbContext appDbContext;
         public readonly IWebHostEnvironment webHostEnvironment;
+        private readonly IFileService fileService;
 
-        public TeamMemberController(AppDbContext appDbContext, IWebHostEnvironment webHostEnvironment)
+        public TeamMemberController(AppDbContext appDbContext, IWebHostEnvironment webHostEnvironment, IFileService fileService)
         {
             this.appDbContext = appDbContext;
             this.webHostEnvironment = webHostEnvironment;
+            this.fileService = fileService;
         }
 
         public async Task<IActionResult> Index()
@@ -42,29 +45,24 @@ namespace Purple.Areas.Admin.Controllers
 
 
             //Check is the file photo
-            if(!teamMember.Photo.ContentType.Contains("image/"))
+            if (!fileService.IsImage(teamMember.Photo))
             {
                 ModelState.AddModelError("Photo", "Seçdiyiniz fayl şəkil formatında deyil");
                 return View(teamMember);
             }
 
             //Check the size of photo
-            if (teamMember.Photo.Length/1024 > 300)
+            if (fileService.SizeCheck(teamMember.Photo))
             {
                 ModelState.AddModelError("Photo", "Şəklin həcmi boyükdür");
                 return View(teamMember);
             }
 
-            //This is for path the image file and make unique name for file 
-            var fileName = $"{Guid.NewGuid()}_{teamMember.Photo.FileName}";
-            var path = Path.Combine(webHostEnvironment.WebRootPath, "assets", "img", fileName);
+           
 
-                using (FileStream fileStream =  new FileStream(path,FileMode.Create,FileAccess.ReadWrite))
-                {
-                    await teamMember.Photo.CopyToAsync(fileStream);
 
-                }
-            teamMember.PhotoName = fileName;
+
+            teamMember.PhotoName = await  fileService.UploadAsync(webHostEnvironment.WebRootPath, teamMember.Photo);
             await appDbContext.AddAsync(teamMember);
             await appDbContext.SaveChangesAsync();
 
@@ -72,9 +70,37 @@ namespace Purple.Areas.Admin.Controllers
         }
 
 
+        [HttpGet]
 
-    
-            
+        public async Task<IActionResult> Delete(int id)
+        {
+            var model = await appDbContext.TeamMembers.FindAsync(id);
+            if (model == null) return NotFound();
+            return View(model);
+
+
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> DeleteComponent(int id)
+        {
+
+            var model = await appDbContext.TeamMembers.FindAsync(id);
+
+            if (model == null) return NotFound();
+
+
+            fileService.Delete(webHostEnvironment.WebRootPath, model.PhotoName);
+            appDbContext.TeamMembers.Remove(model);
+            await appDbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        
+
+
 
     }
+
 }
