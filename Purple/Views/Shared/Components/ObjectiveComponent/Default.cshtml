@@ -1,0 +1,25 @@
+﻿@using Purple.Models;
+@model List<ObjectiveComponent>
+
+<section class="banner-bg bg-white py-5">
+    <div class="container my-4">
+        <div class="row text-center">
+
+            @foreach (var item in Model)
+            {
+                <div class="objective col-lg-4 mt-sm-0 mt-4">
+                    <div class="objective-icon card m-auto py-4 mb-2 mb-sm-4 bg-secondary shadow-lg">
+                        @Html.Raw(item.IconTag)
+                    </div>
+                    <h2 class="objective-heading h3 mb-2 mb-sm-4 light-300">@item.Title</h2>
+                    <p class="light-300">
+                        @item.Desc
+                    </p>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</section>
