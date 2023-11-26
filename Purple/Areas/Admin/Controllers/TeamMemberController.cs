@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Purple.DAL;
 using Purple.Helpers;
 using Purple.Models;
+using Purple.ViewModels.TeamMembers;
 using System.Net.Mime;
 
 namespace Purple.Areas.Admin.Controllers
@@ -58,11 +59,11 @@ namespace Purple.Areas.Admin.Controllers
                 return View(teamMember);
             }
 
-           
 
 
 
-            teamMember.PhotoName = await  fileService.UploadAsync(webHostEnvironment.WebRootPath, teamMember.Photo);
+
+            teamMember.PhotoName = await fileService.UploadAsync(webHostEnvironment.WebRootPath, teamMember.Photo);
             await appDbContext.AddAsync(teamMember);
             await appDbContext.SaveChangesAsync();
 
@@ -97,10 +98,73 @@ namespace Purple.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        
+
+        [HttpGet]
+
+        public async Task<IActionResult> Update(int id)
+        {
+            var dbmodel = await appDbContext.TeamMembers.FindAsync(id);
+            if (dbmodel == null) return NotFound();
+
+            var model = new TeamMemberUpdateViewModel
+            {
+                Name = dbmodel.Name,
+                Position = dbmodel.Position,
+                PhotoName = dbmodel.PhotoName
+            };
+
+            return View(model);
+        }
+
+
+
+        [HttpPost]
+
+        public async Task<IActionResult> Update(int id, TeamMemberUpdateViewModel model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var dbmodel = await appDbContext.TeamMembers.FindAsync(id);
+            if (dbmodel == null) return NotFound();
+
+            dbmodel.Name = model.Name;
+            dbmodel.Position = model.Position;
+
+            if (model.Photo != null)
+            {
+                if (!fileService.IsImage(model.Photo))
+                {
+                    ModelState.AddModelError("Photo", $"{model.Photo.FileName} adlı fayl şəkil deyil");
+                    return View(model);
+                }
+                else
+                {
+                    if (!fileService.SizeCheck(model.Photo))
+                    {
+                        ModelState.AddModelError("Photo", $"{model.Photo.FileName} adlı faylın həcmi böyükdür");
+                        return View(model);
+                    }
+
+                    fileService.Delete(webHostEnvironment.WebRootPath, dbmodel.PhotoName);
+                    dbmodel.PhotoName = await fileService.UploadAsync(webHostEnvironment.WebRootPath, model.Photo);
+
+
+                }
+            }
+
+            await appDbContext.SaveChangesAsync();
+            return RedirectToAction("index");
+
+        }
+
+
+
+
+
+
+
 
 
 
     }
-
 }
