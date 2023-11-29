@@ -5429,6 +5429,14 @@
       "PackagePath": "staticwebassets\\assets\\fonts\\boxicons.woff2"
     },
     {
+      "Id": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\17a1b446-a270-4ed8-b74f-6179fb1c4403_3.png",
+      "PackagePath": "staticwebassets\\assets\\img\\17a1b446-a270-4ed8-b74f-6179fb1c4403_3.png"
+    },
+    {
+      "Id": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\8d4834c7-9c96-4352-9247-2d69eca02ec6_4.png",
+      "PackagePath": "staticwebassets\\assets\\img\\8d4834c7-9c96-4352-9247-2d69eca02ec6_4.png"
+    },
+    {
       "Id": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\apple-icon.png",
       "PackagePath": "staticwebassets\\assets\\img\\apple-icon.png"
     },
@@ -5453,8 +5461,12 @@
       "PackagePath": "staticwebassets\\assets\\img\\banner-img-02.svg"
     },
     {
-      "Id": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\c32d9070-5ab2-477c-b3e8-020e6c029bb1_Green White Minimal Elegant Simple Name Logo.png",
-      "PackagePath": "staticwebassets\\assets\\img\\c32d9070-5ab2-477c-b3e8-020e6c029bb1_Green White Minimal Elegant Simple Name Logo.png"
+      "Id": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\c07e54fc-58d5-4e75-a2e2-56ee15cb63b4_1.png",
+      "PackagePath": "staticwebassets\\assets\\img\\c07e54fc-58d5-4e75-a2e2-56ee15cb63b4_1.png"
+    },
+    {
+      "Id": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\e09b9dd1-8a3a-4f7b-903a-27b83ad9e68b_Green White Minimal Elegant Simple Name Logo.png",
+      "PackagePath": "staticwebassets\\assets\\img\\e09b9dd1-8a3a-4f7b-903a-27b83ad9e68b_Green White Minimal Elegant Simple Name Logo.png"
     },
     {
       "Id": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\favicon.ico",

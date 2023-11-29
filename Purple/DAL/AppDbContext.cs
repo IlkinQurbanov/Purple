@@ -17,6 +17,9 @@ namespace Purple.DAL
         public DbSet<CategoryComponent> CategoryComponents { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet <ObjectiveComponent> ObjectiveComponents { get; set; }
+        public DbSet <FeaturedWork> FeaturedWork { get; set; }
+        public DbSet <FeaturedWorkPhoto> FeaturedWorkPhotos { get; set; }
+
 
 
 

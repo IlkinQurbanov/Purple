@@ -86,6 +86,53 @@ namespace Purple.Migrations
                     b.ToTable("Components");
                 });
 
+            modelBuilder.Entity("Purple.Models.FeaturedWork", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FeaturedWork");
+                });
+
+            modelBuilder.Entity("Purple.Models.FeaturedWorkPhoto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FeaturedWorkId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FeaturedWorkId");
+
+                    b.ToTable("FeaturedWorkPhotos");
+                });
+
             modelBuilder.Entity("Purple.Models.ObjectiveComponent", b =>
                 {
                     b.Property<int>("Id")
@@ -204,6 +251,17 @@ namespace Purple.Migrations
                     b.Navigation("Component");
                 });
 
+            modelBuilder.Entity("Purple.Models.FeaturedWorkPhoto", b =>
+                {
+                    b.HasOne("Purple.Models.FeaturedWork", "FeaturedWork")
+                        .WithMany("FeaturedWorkPhotos")
+                        .HasForeignKey("FeaturedWorkId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FeaturedWork");
+                });
+
             modelBuilder.Entity("Purple.Models.Category", b =>
                 {
                     b.Navigation("CategoryComponents");
@@ -212,6 +270,11 @@ namespace Purple.Migrations
             modelBuilder.Entity("Purple.Models.Component", b =>
                 {
                     b.Navigation("CategoryComponents");
+                });
+
+            modelBuilder.Entity("Purple.Models.FeaturedWork", b =>
+                {
+                    b.Navigation("FeaturedWorkPhotos");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sfu59k7WSQeUwF+pWo7sG1K2rxduD/rL9QaFC3WcdT4=",
+  "Hash": "L4s4q1YQFly9MoDT8o690N2SUR+ti58hqmfi2QWOVRU=",
   "Source": "Purple",
   "BasePath": "_content/Purple",
   "Mode": "Default",
@@ -23086,6 +23086,40 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\boxicons.woff2"
     },
     {
+      "Identity": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\17a1b446-a270-4ed8-b74f-6179fb1c4403_3.png",
+      "SourceId": "Purple",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\",
+      "BasePath": "_content/Purple",
+      "RelativePath": "assets/img/17a1b446-a270-4ed8-b74f-6179fb1c4403_3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\17a1b446-a270-4ed8-b74f-6179fb1c4403_3.png"
+    },
+    {
+      "Identity": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\8d4834c7-9c96-4352-9247-2d69eca02ec6_4.png",
+      "SourceId": "Purple",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\",
+      "BasePath": "_content/Purple",
+      "RelativePath": "assets/img/8d4834c7-9c96-4352-9247-2d69eca02ec6_4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\8d4834c7-9c96-4352-9247-2d69eca02ec6_4.png"
+    },
+    {
       "Identity": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\apple-icon.png",
       "SourceId": "Purple",
       "SourceType": "Discovered",
@@ -23188,12 +23222,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\banner-img-02.svg"
     },
     {
-      "Identity": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\c32d9070-5ab2-477c-b3e8-020e6c029bb1_Green White Minimal Elegant Simple Name Logo.png",
+      "Identity": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\c07e54fc-58d5-4e75-a2e2-56ee15cb63b4_1.png",
       "SourceId": "Purple",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\",
       "BasePath": "_content/Purple",
-      "RelativePath": "assets/img/c32d9070-5ab2-477c-b3e8-020e6c029bb1_Green White Minimal Elegant Simple Name Logo.png",
+      "RelativePath": "assets/img/c07e54fc-58d5-4e75-a2e2-56ee15cb63b4_1.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -23202,7 +23236,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\c32d9070-5ab2-477c-b3e8-020e6c029bb1_Green White Minimal Elegant Simple Name Logo.png"
+      "OriginalItemSpec": "wwwroot\\assets\\img\\c07e54fc-58d5-4e75-a2e2-56ee15cb63b4_1.png"
+    },
+    {
+      "Identity": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\e09b9dd1-8a3a-4f7b-903a-27b83ad9e68b_Green White Minimal Elegant Simple Name Logo.png",
+      "SourceId": "Purple",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\",
+      "BasePath": "_content/Purple",
+      "RelativePath": "assets/img/e09b9dd1-8a3a-4f7b-903a-27b83ad9e68b_Green White Minimal Elegant Simple Name Logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\e09b9dd1-8a3a-4f7b-903a-27b83ad9e68b_Green White Minimal Elegant Simple Name Logo.png"
     },
     {
       "Identity": "C:\\Users\\ilkin\\source\\repos\\Purple\\Purple\\wwwroot\\assets\\img\\favicon.ico",
