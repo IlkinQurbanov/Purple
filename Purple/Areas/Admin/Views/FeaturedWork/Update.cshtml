@@ -1,0 +1,108 @@
+﻿@using Purple.ViewModels.FeaturedWorkComp;
+@model FeaturedWorkUpdateViewModel
+
+<div class="col-md-12">
+    <form class="card" method="post" asp-action="update" asp-controller="featuredwork" asp-area="admin" enctype="multipart/form-data">
+        <div class="card-header">
+            <h3 class="card-title">Create Featured Work</h3>
+        </div>
+        <div class="card-body">
+
+            <div class="mb-3 row">
+                <label class="col-3 col-form-label " asp-for="Title">Title</label>
+                <div class="col">
+                    <input asp-for="Title" class="form-control" placeholder="Enter Title">
+                    <span class="text-danger" asp-validation-for="Title"></span>
+
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-3 col-form-label " asp-for="Name">Name</label>
+                <div class="col">
+                    <input asp-for="Name" class="form-control" placeholder="Enter Name">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="mb-3 row">
+                    <label class="col-3 col-form-label " asp-for="Photos">Photos</label>
+                    <div class="col">
+                        <input asp-for="Photos" class="form-control" placeholder="Enter Photo">
+                        @{
+                            if (Html.ViewData.ModelState["Photos"] != null)
+                            {
+                                foreach (var item in Html.ViewData.ModelState["Photos"].Errors)
+                                {
+                                    <li>@item.ErrorMessage</li>
+                                }
+                            }
+                        }
+                        <span class="text-danger" asp-validation-for="Photos"></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label " asp-for="Description">Description</label>
+                        <div class="col">
+                            <input asp-for="Description" class="form-control" placeholder="Enter Position">
+                            <span class="text-danger" asp-validation-for="Description"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+    </form>
+</div>
+
+
+
+<div class="container-xl" style="margin-left: 50px;">
+
+
+    <div class="col-12">
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Photo</th>       
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach(var item in Model.FeaturedWorkPhotos)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>
+                                    <img src="~/assets/img/@item.Name" style="width: 300px; height: 300px;" />
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" asp-action="deletephoto" asp-controller="featuredwork" asp-area="admin" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Html.PartialAsync("ValidatePartialView")
+}
