@@ -35,7 +35,7 @@
                             {
                                 foreach (var item in Html.ViewData.ModelState["Photos"].Errors)
                                 {
-                                    <li>@item.ErrorMessage</li>
+                                            <li>@item.ErrorMessage</li>
                                 }
                             }
                         }
@@ -86,7 +86,7 @@
                                     <img src="~/assets/img/@item.Name" style="width: 300px; height: 300px;" />
                                 </td>
                                 <td>
-                                    <a class="btn btn-danger" asp-action="deletephoto" asp-controller="featuredwork" asp-area="admin" asp-route-id="@item.Id">Delete</a>
+                                    <button class="btn btn-danger" onclick=if(confirm("Əminsinizmi?")) {Sil(@item.Id);}>Delete</button>
                                 </td>
                                 <td>
                                 </td>
@@ -101,6 +101,20 @@
         </div>
     </div>
 </div>
+<script>
+    function Sil(id) {
+        $.ajax({
+            type: 'GET',
+            url: 'admin/featuredwork/deletephoto/' + id, 
+            success: function (data) {
+                if (data.success) {
+                    alert('Silindi!');
+                    window.location.href = data.redirectTo;
+                }
+            }
+        });
+    }
+</script>
 
 
 @section Scripts {

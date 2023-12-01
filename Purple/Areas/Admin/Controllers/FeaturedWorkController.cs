@@ -164,12 +164,12 @@ namespace Purple.Areas.Admin.Controllers
                     }
                 }
 
-                if(hasError)
+                if (hasError)
                 {
                     return View(model);
                 }
 
-                foreach(var item in model.Photos)
+                foreach (var item in model.Photos)
                 {
                     var featuredPhoto = new FeaturedWorkPhoto();
                     featuredPhoto.Name = await fileService.UploadAsync(webHostEnvironment.WebRootPath, item);
@@ -185,7 +185,20 @@ namespace Purple.Areas.Admin.Controllers
 
         }
 
+        //This method is for delete single photo in Featured Work
+        [HttpGet]
 
+        public async Task<IActionResult> DeletePhoto(int id)
+        {
+            var photo = await appDbContext.FeaturedWorkPhotos.FindAsync(id);
+            if (photo == null) return NotFound();
+            fileService.Delete(webHostEnvironment.WebRootPath, photo.Name);
+            appDbContext.FeaturedWorkPhotos.Remove(photo);
+            await appDbContext.SaveChangesAsync();
+
+            return Json(new { success = true, redirectTo = Url.Action(nameof(Update))});
+
+           }
 
 
     }
